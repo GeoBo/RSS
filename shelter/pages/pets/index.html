@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Pets - Cozy House</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo logo">
+        <h1 class="logo__title">Cozy House</h1>
+        <span class="logo__subtitle">Shelter for pets in Boston</span>
+      </div>
+      <nav class="header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../main/" rel="bookmark">About the shelter</a></li>
+          <li class="nav__item"><a class="nav__link nav__link_active" href="#" rel="bookmark">Our pets</a></li>
+          <li class="nav__item"><a class="nav__link" href="#help" rel="bookmark">Help the shelter</a></li>
+          <li class="nav__item"><a class="nav__link" href="#footer" rel="bookmark">Contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="our-friends" id="our-friends">
+      <div class="our-friends__container">
+        <h3 class="our-friends__title">Our friends who are&nbsp;looking&nbsp;for&nbsp;a&nbsp;house</h3>
+        <div class="our-friends__gallery">
+          <button class="our-friends__btn-left">
+            <svg>
+              <use href="../../assets/icons/sprite.svg#arrow-left" />
+            </svg>
+          </button>
+          <div class="our-friends__card-block">
+            <div class="our-friends__card">
+              <img class="our-friends__img" src="../../assets/images/pets-katrine.png" alt="Pet photo">
+              <h4 class="our-friends__name">Katrine</h4>
+              <button class="our-friends__button">Learn more</button>
+            </div>
+            <div class="our-friends__card">
+              <img class="our-friends__img" src="../../assets/images/pets-jennifer.png" alt="Pet photo">
+              <h4 class="our-friends__name">Jennifer</h4>
+              <button class="our-friends__button">Learn more</button>
+            </div>
+            <div class="our-friends__card">
+              <img class="our-friends__img" src="../../assets/images/pets-woody.png" alt="Pet photo">
+              <h4 class="our-friends__name">Woody</h4>
+              <button class="our-friends__button">Learn more</button>
+            </div>
+          </div>
+          <button class="our-friends__btn-right">
+            <svg>
+              <use href="../../assets/icons/sprite.svg#arrow-right" />
+            </svg>
+          </button>
+        </div>
+        <a class="our-friends__link" href="../pets/" rel="bookmark">Get to know the rest</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="footer">
+    <div class="footer__container">
+      <div class="contacts">
+        <h3 class="contacts__title">For questions and suggestions</h3>
+        <a class="contacts__mail" href="mailto:email@shelter.com">
+          <svg>
+            <use href="../../assets/icons/sprite.svg#email"/>
+          </svg>
+          <h4>email@shelter.com</h4>
+        </a>
+        <a class="contacts__phone" href="tel:+13-674-567-75-54">
+          <svg>
+            <use href="../../assets/icons/sprite.svg#phone"/>
+          </svg>
+          <h4>+13 674 567 75 54</h4>
+        </a>
+      </div>
+      <div class="location">
+        <h3 class="location__title">We are waiting for your visit</h3>
+        <a class="location__boston" href="https://www.google.com/maps/search/?api=1&query=53.93679505421396%2C27.60463813822695&query_place_id=ChIJtW_l5qPP20YRC0OmID7Qtvc" target="_blank">
+          <svg>
+            <use href="../../assets/icons/sprite.svg#location"/>
+          </svg>
+          <h4>1 Central Street, Boston (entrance from the store)</h4>
+        </a>
+        <a class="location__london" href="https://www.google.com/maps/search/?api=1&query=53.96254964836452%2C27.669913249476632&query_place_id=ChIJ5fOuW0_J20YRz6_Jg4u67HM" target="_blank">
+          <svg>
+            <use href="../../assets/icons/sprite.svg#location"/>
+          </svg>
+          <h4>18 South Park, London</h4>
+        </a>
+      </div>
+      <img class="footer__img" src="../../assets/images/footer-puppy.png" alt="dog photo">
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>
