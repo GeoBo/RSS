@@ -18,6 +18,7 @@
     --color-dark-3xl: #292929;
     --color-dark-m: #B2B2B2;
     --trans: 0.3s ease-out;
+    --padding: 40px;
 }
 
 @font-face {
@@ -28,6 +29,12 @@
 @font-face {
     font-family: "myGeorgia";
     src: url("../../assets/fonts/georgia/georgia.ttf") format("opentype");
+}
+
+@keyframes main-rotate {
+    100% {
+        transform:  rotateY(360deg);
+    }
 }
 
 html { 
@@ -73,7 +80,7 @@ button {
     justify-content: space-between;
     align-items: center; 
     text-align: center;
-    padding: 60px 40px;  
+    padding: 60px var(--padding);  
     height: 180px;
 }
 
@@ -114,20 +121,17 @@ button {
 .nav__link_active {
     padding-bottom: 3px;
     border-bottom: 3px solid var(--color-primary);
-    *pointer-events: none;
     color: var(--color-light-s);
 }
 
 .not-only__container {
-    display: flex;
+    display: flex;   
     flex-direction: row;
     justify-content: space-between;
-    *align-items: center; 
     background-color: var(--header-color);
     background: url('../../assets/images/noise_transparent@2x.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);  
     background-blend-mode: multiply;
-    padding: 0 40px;
-    height: 908px;
+    padding: 0 var(--padding);
     margin-top: -180px;
     padding-top: 180px;
 }
@@ -137,20 +141,22 @@ button {
     width: 460px;
     font-size: 15px;
     line-height: 160%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .not-only__title {
     color: var(--color-light-xl);
     font-size: 44px;
     line-height: 130%;
-    *width: 310px;
     letter-spacing: 0;
 }
 
 .not-only__content {
     color: var(--color-dark-s);
     padding: 42px 0;
-    margin-bottom: 15px;
 }
 
 .not-only__img {
@@ -158,7 +164,7 @@ button {
 }
 
 .not-only__link {
-    padding: 16px 45px;
+    padding: 15px 45px;
     border-radius: 100px;
     border: 0;
     background-color: var(--color-primary);
@@ -177,13 +183,11 @@ button {
 .about__container {
     display: flex;
     flex-direction: row;
-    *justify-content: space-between;
     justify-content: center;
     align-items: center; 
-    gap: 120px;
-    padding: 80px 40px;
+    gap: 10%;
+    padding: 80px var(--padding);
     padding-bottom: 100px;
-    height: 588px; 
 }
 
 .about__img {
@@ -191,14 +195,12 @@ button {
 }
 
 .about__text-block {
-    *padding-top: 163px;
     width: 430px;
     font-size: 15px;
     line-height: 160%;
 }
 
 .about__title {
-    *width: 370px;
     color: var(--color-dark-l);
     font-size: 35px;
     line-height: 130%;
@@ -216,7 +218,7 @@ button {
     justify-content: center;
     align-items: center;
     gap: 60px;
-    padding: 80px 40px;
+    padding: 80px var(--padding);
     padding-bottom: 100px;
     height: 877px;
     background-color: var(--color-light-l); 
@@ -228,33 +230,24 @@ button {
     line-height: 130%;
     letter-spacing: 0.06em;
     max-width: 400px;
-    *width: 600px;
     color: var(--color-dark-l);
 }
 
 .our-friends__gallery {
     width: 100%;
     display: flex;
-    *flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    *flex-basis: 270px;
 }
 
 .our-friends__card-block {
     width: 100%;
     display: flex;
-    *flex-direction: row;
-    *justify-content: space-between;
     justify-content: space-around;
-    *justify-content: center;
-    *gap: 30px; 
-    *margin: 0 8px;
 }
 
 .our-friends__card {
-    *flex-basis: 270px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -268,13 +261,7 @@ button {
 }
 
 .our-friends__card:hover {
-    *transform: scale(1.1);
-    *transform: scale(1.05);
-    *filter: brightness(0.97);
-    *filter: contrast(1.1) brightness(0.95);
     filter: contrast(1.1) brightness(0.96) saturate(130%);
-    *filter: brightness(0.9) grayscale(0.2);
-    *box-shadow: 0px 0px 0px 2px var(--color-primary);
 }
 
 .our-friends__name {
@@ -304,10 +291,6 @@ button {
 }
 
 .our-friends__link {
-    *width: 261px;
-    *height: 52px;
-    *padding-top: 0.5px;
-    *border: 2px solid var(--color-primary);
     padding: 15px 45px;
     border: 0;
     border-radius: 100px;
@@ -352,13 +335,7 @@ button {
 }
 
 .help__container {
-    *display: flex;
-    *flex-direction: row;
-    *justify-content: space-between;
-    *justify-content: center;
-    *align-items: center; 
-    *gap: 120px;
-    padding: 80px 40px;
+    padding: 80px var(--padding);
     padding-bottom: 100px;
     min-height: 611px; 
 }
@@ -373,34 +350,12 @@ button {
     color: var(--color-dark-l);
 }
 
-/* .help__icon-block {
-    *width: 100%;
-    display: grid;
-    grid-auto-flow: column;
-    *grid-template-columns: repeat(5, 1fr);
-    *grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    *grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
-    *grid-template-columns: repeat(auto-fill, 200px);
-    *grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    *grid-column-gap: 120px;
-    grid-row-gap: 55px;
-    *justify-content: center;
-    *justify-items: center;
-    *align-items: center;
-    *align-content: center;
-    *justify-content: space-evenly;
-    padding-top: 60px;
-} */
-
 .help__icon-block {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; 
-    *column-gap: 120px;
-    *column-gap: 7.5em;
     column-gap: 10%;
     row-gap: 55px;
-    *row-gap: 2em;
     padding-top: 60px; 
     transform-style: preserve-3d;
 } 
@@ -414,7 +369,6 @@ button {
     width: 60px;
     height: 60px;
     margin: auto;
-    *transition: 2s;
 }
 
 .help__name {
@@ -427,20 +381,19 @@ button {
 }
 
 .in-addition__container {
-    padding: 80px 40px;
-    padding-bottom: 100px;
-    min-height: 462px; 
-    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    column-gap: 30px;
+    row-gap: 60px;
+    padding: 80px var(--padding);
+    padding-bottom: 100px;
+    margin: 0 auto;
     background-color: var(--color-light-l);
 }
 
 .in-addition__img {
-    *width: 505px;
-    height: 100%
+    height: 100%;   
 }
 
 .in-addition__text-block {
@@ -448,14 +401,12 @@ button {
     flex-direction: column; 
     gap: 20px;
     width: 380px;
-    *height: 282px;
     color: var(--color-dark-l);
 }
 
 .in-addition__title {
     font-size: 35px;
-    line-height: 128%; 
-    *margin-top: -1px;
+    line-height: 130%; 
 }
 
 .in-addition__subtitle {
@@ -470,7 +421,6 @@ button {
     gap: 15px;
     width: 349px; 
     padding: 10px 14px; 
-    *padding-bottom: 15px; 
     background-color: var(--color-primary);
     border-radius: 9px;
     transition: var(--trans);
@@ -501,16 +451,10 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    *justify-content: center;
-    flex-wrap: wrap;
-    gap: 10%;
-    *align-items: center; 
-    *align-content: center; 
-    *padding: 60px 40px; 
-    padding: 0 40px;  
-    padding-top: 40px;  
-    min-height: 350px;
-    background: url('../../assets/images/noise_transparent@2x.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);  
+    gap: 6%;
+    padding: 0 var(--padding);
+    padding-top: 40px;
+    background: url('../../assets/images/noise_transparent@2x.jpg'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
     background-blend-mode: multiply;
 }
 
@@ -520,7 +464,6 @@ button {
     gap: 39px;
     padding-top: 15px;
     padding-bottom: 60px;
-    *width: 279px;
     flex-basis: 300px;
     margin-left: -7px;
 }
@@ -531,9 +474,7 @@ button {
     gap: 32px;
     padding-top: 15px;
     padding-bottom: 60px;
-    *width: 300px;
     flex-basis: 300px;
-    *margin-left: 7px;
     margin-left: -18px; 
 }
 
@@ -549,7 +490,6 @@ button {
 .location__boston,
 .location__london {
     display: flex;
-    *justify-content: center;
     align-items: center;
     gap: 20px;
     font-size: 20px;
@@ -563,7 +503,6 @@ button {
 .location__boston:hover,
 .location__london:hover {
     color: var(--color-primary-light);
-    *color: #EEE;
 }
 
 .contacts__mail svg,
@@ -589,15 +528,101 @@ button {
 .location__boston:hover svg,
 .location__london:hover svg {
     fill: var(--color-primary-light);
-    *fill: #EEE;
 }
 
 .footer__img {
     height: 100%;
 }
 
-@keyframes main-rotate {
-    100% {
-        transform:  rotateY(360deg);
+@media (max-width: 1279px) { 
+    .not-only__text-block {
+        padding-top: 12vw;
+    }
+    .not-only__img {  
+        height: 57vw;
+    }
+    .in-addition__img {
+        height: 20.4vw;
+    }
+    .our-friends__card-block {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 1080px) {  
+    .our-friends__card:nth-child(3) {
+        display: none;
+    }
+    .footer__container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 960px) {
+    .header__container { 
+        padding-top: 30px;
+        height: 150px;
+    }
+    
+    .not-only__container {
+        flex-direction: column;
+        align-items: center;
+        gap: 100px;
+        padding-top: 150px;
+        margin-top: -150px;
+    }
+    
+    .not-only__text-block {
+        padding-top: 0;
+        align-items: center;
+    }
+   
+    .not-only__img {   
+        height: 70vw;
+        align-self: flex-end;
+    } 
+    .help__icon-block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        margin: 0 10px;
+    }  
+    .about__container {
+        flex-direction: column;
+        gap: 80px;     
+    }
+    .about__img {
+        order: 2;
+    }
+    .in-addition__container {
+        flex-direction: column;    
+    }
+    .in-addition__img {
+        order: 2;
+        height: 34vw;
+    }
+}
+
+@media (max-width: 769px) {
+    :root {
+        --padding: 30px;
+    }
+    .not-only__img {   
+        height: 77vw;
+    }   
+    .footer__container {
+        padding-top: 30px;
+        column-gap: 8%;
+        row-gap: 65px;
+    }
+    .contacts {     
+        padding: 0;
+        margin: 0;
+        gap: 40px;
+    }
+    .location {
+        padding: 0;
+        gap: 33px;
     }
 }
