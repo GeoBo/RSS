@@ -18,7 +18,8 @@
     --color-dark-3xl: #292929;
     --color-dark-m: #B2B2B2;
     --trans: 0.3s ease-out;
-    --padding: 40px;
+    *--padding: 40px;
+    --padding: 3.13%;
 }
 
 @font-face {
@@ -124,6 +125,23 @@ button {
     color: var(--color-light-s);
 }
 
+.header__menu-btn {
+    background: none;
+    border: none;
+    display: none;
+    padding: 20px;
+}
+
+.header__menu-btn svg {
+    width: 30px;
+    height: 22px;
+    stroke: var(--color-primary);
+}
+
+.header__menu-btn:hover svg {
+    stroke: var(--color-primary-light);
+}
+
 .not-only__container {
     display: flex;   
     flex-direction: row;
@@ -137,14 +155,14 @@ button {
 }
 
 .not-only__text-block {
-    padding-top: 163px;
-    width: 460px;
-    font-size: 15px;
-    line-height: 160%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding-top: 163px;
+    width: 460px;
+    font-size: 15px;
+    line-height: 160%;
 }
 
 .not-only__title {
@@ -157,10 +175,6 @@ button {
 .not-only__content {
     color: var(--color-dark-s);
     padding: 42px 0;
-}
-
-.not-only__img {
-    height: 100%;
 }
 
 .not-only__link {
@@ -188,10 +202,6 @@ button {
     gap: 10%;
     padding: 80px var(--padding);
     padding-bottom: 100px;
-}
-
-.about__img {
-    height: 100%;
 }
 
 .about__text-block {
@@ -285,7 +295,7 @@ button {
     transition: var(--trans);
 }
 
-.our-friends__button:hover {
+.our-friends__card:hover .our-friends__button {
     background-color: var(--color-primary-light);
     border-color: var(--color-primary-light);
 }
@@ -390,10 +400,6 @@ button {
     padding-bottom: 100px;
     margin: 0 auto;
     background-color: var(--color-light-l);
-}
-
-.in-addition__img {
-    height: 100%;   
 }
 
 .in-addition__text-block {
@@ -530,10 +536,6 @@ button {
     fill: var(--color-primary-light);
 }
 
-.footer__img {
-    height: 100%;
-}
-
 @media (max-width: 1279px) { 
     .not-only__text-block {
         padding-top: 12vw;
@@ -559,6 +561,18 @@ button {
     }
 }
 
+@media (max-width: 980px) {
+    .help__icon-block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        margin: 0 10px;
+    }  
+ /*    .help__icon-card {
+        flex: 1 1 160px;
+    } */
+}
+
 @media (max-width: 960px) {
     .header__container { 
         padding-top: 30px;
@@ -582,12 +596,6 @@ button {
         height: 70vw;
         align-self: flex-end;
     } 
-    .help__icon-block {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap: 0px;
-        margin: 0 10px;
-    }  
     .about__container {
         flex-direction: column;
         gap: 80px;     
@@ -606,7 +614,8 @@ button {
 
 @media (max-width: 769px) {
     :root {
-        --padding: 30px;
+        *--padding: 30px;
+        --padding: 3.91%;
     }
     .not-only__img {   
         height: 77vw;
@@ -624,5 +633,74 @@ button {
     .location {
         padding: 0;
         gap: 33px;
+    }
+}
+
+@media (max-width: 750px) {
+    .our-friends__card:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .nav {
+        display: none;
+    }
+    .header__menu-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .help__icon-block {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    :root {
+        *--padding: 10px;
+        --padding: 3.13%;
+    }
+    .not-only__text-block {
+        *width: auto;
+        max-width: 300px;    
+        text-align: center;
+    }
+    .not-only__title {
+        font-size: 25px;
+    }
+    .about__text-block {
+        max-width: 300px;
+        text-align: justify;
+    }
+    .about__title {
+        font-size: 25px;
+        text-align: center;
+    }
+    .our-friends__title {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 450px) {
+    .our-friends__gallery {
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 90px;
+        row-gap: 20px;
+        *justify-content: space-around;
+        *justify-content: space-evenly;
+        *width: auto;
+    }
+    .our-friends__card-block {
+        *order: 1;        
+    }
+    .our-friends__btn-left {
+        order: 2; 
+    }
+    .our-friends__btn-right {
+        order: 3; 
     }
 }
