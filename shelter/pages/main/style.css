@@ -129,12 +129,19 @@ button {
     padding: 23px;
     padding-top: 26px;
     margin-right: 21px;
+    z-index: 2;
+    transition: var(--trans);
 }
 
 .header__menu-btn svg {
     width: 29px;
     height: 22px;
     stroke: var(--color-primary);
+}
+
+.header__menu-btn.active {
+    background: rgb(41, 41, 41, .5);
+    border-radius: 50%;
 }
 
 .header__menu-btn:hover svg {
@@ -534,6 +541,22 @@ button {
     fill: var(--color-primary-light);
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(41, 41, 41, 0.6);
+    transition: var(--trans);
+    display: none; 
+}
+
+.overlay[aria-hidden="true"] {
+    opacity: 0; 
+    visibility: hidden;  
+}
+
 @media (max-width: 1279px) { 
     .not-only__text-block {
         padding-top: 12vw;
@@ -556,7 +579,7 @@ button {
     .footer__container {
         flex-wrap: wrap;
         justify-content: center;
-    }
+    } 
 }
 
 @media (max-width: 980px) {
@@ -586,7 +609,6 @@ button {
         padding-top: 0;
         align-items: center;
     }
-   
     .not-only__img {   
         height: 70vw;
         align-self: flex-end;
@@ -637,11 +659,48 @@ button {
 }
 
 @media (max-width: 720px) {
-    .nav {
-        display: none;
+    .no-scroll {
+        overflow: hidden;
+        padding-right: var(--scrollbar-width); 
+    }
+    .no-scroll .nav__list {
+        overflow-y: scroll;
+    }
+    .nav__list {
+        flex-direction: column;
+        gap: 40px;
+        position: fixed;
+        right: -320px;
+        top: 0;
+        bottom: 0; 
+        padding: 30vh 30px;
+        max-width: 320px;
+        width: 100%;
+        opacity: 0;
+        z-index: -1;         
+        background-color: var(--color-dark-3xl);     
+        transition: ease-out 0.7s;
+    }
+    .nav__link {
+        font-size: 32px;
+        line-height: 160%;   
+    }
+    .nav__link_active {
+        padding-bottom: 5px;
     }
     .header__menu-btn {
         display: block;
+    }
+    .header__menu-btn.active {
+        transform: rotateZ(90deg);
+    }
+    .nav__list.open {      
+        opacity: 1;
+        z-index: 2;
+        right: 0;
+    }
+    .overlay {
+        display: block; 
     }
     .not-only__img {   
         height: 86vw;
@@ -683,6 +742,15 @@ button {
 @media (max-width: 520px) {
     :root {
         --padding: 3.13%;
+    }
+    .logo {  
+        position: absolute;
+        z-index: 3;
+        left: var(--padding);
+        transition: ease-out 0.7s; 
+    }   
+    .top {
+        left: calc(100% - 310px + var(--scrollbar-width));
     }
     .not-only__text-block {
         max-width: 300px;    
