@@ -66,8 +66,14 @@ button {
   cursor: pointer;
 }
 
+.header {
+  position: sticky; 
+  top: 0;
+  background: var(--color-light-xl);
+  z-index: 2;
+}
+
 .header__container {
-  *position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
