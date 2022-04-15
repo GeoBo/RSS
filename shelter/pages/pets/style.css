@@ -18,6 +18,7 @@
   --color-dark-3xl: #292929;
   --color-dark-m: #B2B2B2;
   --trans: 0.3s ease-out;
+  --menu-trans: 0.7s ease-out;
   --padding: 3.13%;
 }
 
@@ -67,6 +68,14 @@ button {
   cursor: pointer;
 }
 
+.header {
+  position: sticky;
+  top: 0; 
+  z-index: 2; 
+  background: var(--color-light-xl); 
+  transition: var(--menu-trans);
+}
+
 .header__container {
   display: flex;
   flex-direction: row;
@@ -78,6 +87,7 @@ button {
 
 .header__logo {
   display: block;
+  transition: var(--menu-trans);
 }
 
 .header__logo:not(.top):hover .logo__title,
@@ -99,6 +109,26 @@ button {
   letter-spacing: 0.1em;
   color: var(--color-dark-3xl);
   transition: var(--trans);
+}
+
+.nav__logo {
+    display: none;
+    text-align: left;
+}
+
+.nav__title {  
+    font-size: 32px;
+    line-height: 110%;
+    padding-bottom: 7px;
+    color: var(--color-primary);
+    transition: var(--trans);
+}
+.nav__subtitle {
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.1em;
+    transition: var(--trans);
+    color: var(--color-light-xl);
 }
 
 .nav__list {
@@ -132,28 +162,21 @@ button {
     padding: 23px;
     padding-top: 26px;
     margin-right: 21px;
-    z-index: 2;
+    z-index: 3;
     transition: var(--trans);
 }
 
 .header__menu-btn svg {
     width: 29px;
     height: 22px;
-    *stroke: black;
-    stroke: var(--color-dark-l);
+    stroke: black;
     transition: var(--trans);
 }
 
 .header__menu-btn:hover svg {
     width: 29px;
     height: 22px;
-    stroke: black;
-    *stroke: var(--color-dark-l);
-}
-
-.header__menu-btn.active {
-    background: rgb(41, 41, 41, .5);
-    border-radius: 50%;
+    stroke: var(--color-dark-l);
 }
 
 .header__menu-btn.active svg {
@@ -194,7 +217,8 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  background-color: var(--color-light-xl);
+  *background-color: var(--color-light-xl);
+  background: var(--color-light-s);
   padding-bottom: 30px;
   transition: var(--trans);
   cursor: pointer;
@@ -202,7 +226,9 @@ button {
 }
 
 .our-friends__card:hover {
-  filter: contrast(1.1) brightness(0.96) saturate(130%);
+  *filter: contrast(1.1) brightness(0.96) saturate(130%);
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  background: var(--color-light-xl);
 }
 
 .our-friends__name {
@@ -303,7 +329,7 @@ button {
   padding-top: 15px;
   padding-bottom: 60px;
   flex-basis: 300px;
-  margin-left: -24px; 
+  margin-left: -24px;
 }
 
 .contacts__title,
@@ -370,12 +396,12 @@ button {
     left: 0;
     background: rgba(41, 41, 41, 0.6);
     transition: var(--trans);
-    display: none; 
+    display: none;   
 }
 
 .overlay[aria-hidden="true"] {
     opacity: 0; 
-    visibility: hidden;  
+    visibility: hidden; 
 }
 
 @media (max-width: 1279px) {
@@ -431,28 +457,42 @@ button {
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767px) {
     .no-scroll {
         overflow: hidden;
         padding-right: var(--scrollbar-width); 
     }
-    .no-scroll .nav__list { 
+    .menu {
+        background: transparent; 
+        *background: rgb(123 123 123);
+    }
+    .no-scroll .nav { 
         overflow-y: scroll;
+    }
+    .menu .logo {  
+        opacity: 0;
+    } 
+    .nav {
+        position: fixed;
+        top: 0;
+        bottom: 0; 
+        right: -320px;
+        max-width: 320px;
+        width: 100%;
+        padding: 30px 10px;
+        opacity: 0;
+        z-index: -1;         
+        background-color: var(--color-dark-3xl);     
+        transition: var(--menu-trans);
+    }
+    .nav__logo {
+        display: block;
     }
     .nav__list {
         flex-direction: column;
         gap: 40px; 
-        position: fixed;
-        right: -320px;
-        top: 0;
-        bottom: 0; 
-        padding: 30.7vh 30px;
-        max-width: 320px;
-        width: 100%;
-        opacity: 0;
-        z-index: -1;         
-        background-color: var(--color-dark-3xl);     
-        transition: ease-out 0.7s;
+        *padding-top: 30.7vh;
+        padding-top: 162px;
     }
     .nav__link {
         font-size: 32px;
@@ -477,7 +517,7 @@ button {
     .header__menu-btn.active:hover svg {
         stroke: var(--color-primary-light);
     }
-    .nav__list.open {    
+    .menu .nav {
         opacity: 1;
         z-index: 2;
         right: 0;
@@ -501,26 +541,6 @@ button {
 @media (max-width: 520px) {
     :root {
         --padding: 3.13%;
-    }
-    .logo {  
-        position: absolute;
-        z-index: 3;
-        left: var(--padding);
-        transition: ease-out 0.7s; 
-    } 
-    .top {
-        left: calc(100% - 310px + var(--scrollbar-width));
-    }
-    .top.logo {
-        *background: var(--color-dark-3xl);
-        background: rgb(41, 41, 41, .5);
-        border-radius: 5px;
-    }
-    .top .logo__title {
-        color: var(--color-primary);
-    }
-    .top .logo__subtitle {
-        color: var(--color-light-xl);
     }
     .our-friends__container {
        padding: 42px var(--padding);
@@ -552,4 +572,10 @@ button {
     .footer__img {
         height: 84vw;
     }
+}
+
+@media (max-height: 600px) and (max-width: 767px) {
+  .nav__list {
+      padding: 80px 0;
+  }
 }

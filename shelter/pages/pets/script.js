@@ -20,17 +20,18 @@ function addMenuEvent () {
     const navList = document.querySelector (".nav__list");
     const overlay = document.querySelector (".overlay");
     const logo = document.querySelector (".logo");
+    const header = document.querySelector (".header");
     
+
     const toggleMenu = () => {
-        if (navList.classList.contains ("open")) {
+        if (header.classList.contains ("menu")) {
             overlay.setAttribute ("aria-hidden", "true");
         } 
         else overlay.setAttribute ("aria-hidden", "");
         
         button.classList.toggle ("active");
-        navList.classList.toggle ("open");
+        header.classList.toggle ("menu");
         body.classList.toggle ("no-scroll");
-        logo.classList.toggle ("top");
     };
 
     const closeMenuLink = (event) => {
@@ -42,8 +43,7 @@ function addMenuEvent () {
     const closeMenu = () => {
         body.classList.remove ("no-scroll");
         button.classList.remove ("active");
-        navList.classList.remove ("open");
-        logo.classList.remove ("top");
+        header.classList.remove ("menu");
         overlay.setAttribute ("aria-hidden", "true");
     };
 
