@@ -19,7 +19,6 @@ function addMenuEvent () {
     const button = document.querySelector (".header__menu-btn");
     const navList = document.querySelector (".nav__list");
     const overlay = document.querySelector (".overlay");
-    const logo = document.querySelector (".logo");
     const header = document.querySelector (".header");
     
 
