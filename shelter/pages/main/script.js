@@ -1,11 +1,66 @@
+
+import {tns} from '../../assets/tiny-slider/tiny-slider.js';
+
+const slider = tns({
+  container: '.our-friends__card-block',
+  prevButton: '.our-friends__btn-left',
+  nextButton: '.our-friends__btn-right',
+  items: 1,
+  slideBy: 'page',
+  nav: false,
+  gutter: 0,
+  speed: 600,
+  responsive: {
+    767: {
+        gutter: 30,
+        items: 2
+    },
+    1080: {
+        items: 3,
+        gutter: 0,
+    }
+  }
+});
+
 document.addEventListener ("DOMContentLoaded", initScroll);
 
 window.addEventListener("load", function () {
     addMenuEvent ();
-    getScrollWidth ();
-    window.addEventListener("resize", getScrollWidth);
+    addScrollEvent ();
+    addModalEvent (); 
 });
 
+
+function addModalEvent () {
+    const cardBlock = document.querySelector (".our-friends__card-block");
+    const modal = document.querySelector (".modal");
+    const closeBtn = document.querySelector (".modal__close-btn");
+
+    const showPet = (e) => {
+        if (e.target.closest('div').classList.contains("our-friends__card")) {       
+            modal.setAttribute ("aria-hidden", "");
+        }
+    }
+
+    const hidePet = (e) => {
+        if (e.target.classList.contains ("modal")) {
+            modal.setAttribute ("aria-hidden", "true");
+        } 
+    }
+
+    const closeModal = (e) => {
+        modal.setAttribute ("aria-hidden", "true");
+    }
+
+    cardBlock.addEventListener("click", showPet);
+    modal.addEventListener("click", hidePet);
+    closeBtn.addEventListener("click", closeModal);  
+}
+
+function addScrollEvent () {
+    getScrollWidth ();
+    window.addEventListener("resize", getScrollWidth);
+}
 
 function getScrollWidth () {
     document.body.style.setProperty (
