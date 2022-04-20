@@ -404,10 +404,146 @@ button {
     visibility: hidden; 
 }
 
+.modal {
+    position: fixed;    
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    background: rgba(41, 41, 41, 0.6);
+    cursor: pointer;
+    transition: var(--trans);
+}
+
+.modal[aria-hidden="true"] {
+    opacity: 0; 
+    visibility: hidden;  
+}
+
+.modal__window {
+    position: fixed;    
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;  
+    width: 80%; 
+    height: 50vw;
+    max-width: 900px; 
+    max-height: 500px;
+    z-index: 2;
+    background-color: var(--color-light-s);
+    border-radius: 9px;
+    color: #000000;
+    cursor: default;  
+}
+
+.modal__wrapper {
+    display: flex;  
+    align-items: center;
+    gap: 29px;
+    height: 100%;
+    transition: var(--trans);
+}
+
+.modal__wrapper:hover{
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.modal__img {
+    height: 44vw;
+    max-height: 100%;
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* margin-top: -30px; */
+    padding-right: 20px;
+    font-family: georgia, "myGeorgia", serif;
+}
+
+.modal__title {
+    font-size: 35px;
+    line-height: 130%;
+    margin-bottom: 10px;
+}
+
+.modal__subtitle {
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: 0.06em;
+}
+
+.modal__desc {
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+}
+
+.modal__list {
+    font-size: 15px;
+    line-height: 110%;
+    letter-spacing: 0.06em;
+    font-family: georgia, "myGeorgia", serif;
+}
+
+.modal__item {
+    margin: 12px 0;  
+}
+
+.modal__item:first-child {
+    margin: 0;  
+}
+
+.modal__item::before {
+  content: "\2022";  
+  color: var(--color-primary);
+  font-weight: bold; 
+  display: inline-block;
+  width: 1em; 
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: -53px;
+    right: -41px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;   
+    background: transparent;
+    transition: var(--trans);
+}
+
+.modal__close-btn:hover {  
+    background: var(--color-primary-light);
+}
+
+.modal__close-icon {  
+    font-size: 28px;
+    color: var(--color-dark-3xl);
+}
+
 @media (max-width: 1279px) {
     .our-friends__card:nth-child(7),
     .our-friends__card:nth-child(8) {
         display: none;
+    }
+   .modal__wrapper {
+        gap: 1.4vw;
+    }
+    .modal__img {
+        height: 46vw;
+    }
+    .modal__content {
+        /* margin-top: -20px; */      
+        gap: 2.4vw;
+    }
+    .modal__item {
+        margin: 7px 0;
     }
 }
 
@@ -449,11 +585,15 @@ button {
         gap: 33px;
         margin-left: -18px;
     }
-}
-
-@media (max-width: 767px) {
-      .our-friends__card-block {
-        justify-content: space-evenly;
+    .modal__desc {
+        font-size: 13px;
+    } 
+    .modal__window {        
+        width: 82%; 
+        height: 45.5vw;
+    }
+    .modal__content {
+        padding-right: 5px;
     }
 }
 
@@ -464,7 +604,6 @@ button {
     }
     .menu {
         background: transparent; 
-        *background: rgb(123 123 123);
     }
     .no-scroll .nav { 
         overflow-y: scroll;
@@ -522,8 +661,27 @@ button {
         z-index: 2;
         right: 0;
     }
+    .our-friends__card-block {
+        justify-content: space-evenly;
+    }
     .overlay {
         display: block; 
+    }
+    .modal__window {
+        height: 62vw; 
+        width: 65%
+    }
+    .modal__img {
+        display: none;
+    }
+    .modal__content {
+        padding: 5vw;
+        gap: 6.6vw;
+        margin-top: 5px; 
+        text-align: justify;
+    }
+    .modal__logo {
+        text-align: center;
     }
 }
 
@@ -535,6 +693,9 @@ button {
     }
     .pagination {
         padding: 0;
+    }
+    .modal__window {
+        width: 80%;   
     }
 }
 
@@ -563,6 +724,10 @@ button {
         margin: 0;
         gap: 12.5vw;
     }
+    .modal__window {
+        height: 80vw; 
+        width: 75%;
+    }
 }
 
 @media (max-width: 380px) {
@@ -572,10 +737,19 @@ button {
     .footer__img {
         height: 84vw;
     }
+      .modal__window {
+        height: 95vw;       
+    }
+    .modal__content {
+        padding: 10px;
+    }
+    .modal__close-btn {
+        right: -30px;
+    }
 }
 
-@media (max-height: 600px) and (max-width: 767px) {
-  .nav__list {
-      padding: 80px 0;
-  }
+@media (max-width: 350px) {
+    .modal__window {
+        height: 107vw; 
+    }
 }

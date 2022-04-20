@@ -1,5 +1,8 @@
 
-import {tns} from '../../assets/tiny-slider/tiny-slider.js';
+import {tns} from '../../assets/js/tiny-slider/tiny-slider.js';
+
+import pets from '../../assets/js/pets.json' assert {type: 'json'};
+
 
 const slider = tns({
   container: '.our-friends__card-block',
@@ -27,8 +30,21 @@ document.addEventListener ("DOMContentLoaded", initScroll);
 window.addEventListener("load", function () {
     addMenuEvent ();
     addScrollEvent ();
-    addModalEvent (); 
+    addModalEvent ();   
+    window.addEventListener(`resize`, fixModalHeight); 
 });
+
+
+function fixModalHeight () {
+    const modalWindow = document.querySelector('.modal__window');
+    const modalContent = document.querySelector('.modal__content');
+    const modalWrapper = document.querySelector('.modal__wrapper');
+    const contentPadding = 20;
+    const contentHeight = modalContent.offsetHeight;
+    console.log(modalWrapper.offsetHeight, contentHeight);
+    modalWindow.style.height = '';
+    if (modalWrapper.offsetHeight < contentHeight - 6) modalWindow.style.height = contentHeight + contentPadding +'px';
+}
 
 
 function addModalEvent () {
@@ -37,13 +53,39 @@ function addModalEvent () {
     const closeBtn = document.querySelector (".modal__close-btn");
 
     const showPet = (e) => {
-        if (e.target.closest('div').classList.contains("our-friends__card")) {       
+        const petCard = e.target.closest('div');
+        if (petCard.classList.contains("our-friends__card")) {       
+            const petName = petCard.querySelector('.our-friends__name').textContent;
+            const pet = getPetInfo (petName);
+            updateModal(pet);
             modal.setAttribute ("aria-hidden", "");
+            fixModalHeight ();
         }
     }
 
+    const updateModal = (data) => {
+        const img = modal.querySelector (".modal__img");
+        const title = modal.querySelector (".modal__title");
+        const subtitle = modal.querySelector (".modal__subtitle");
+        const desc = modal.querySelector (".modal__desc");
+        const list = modal.querySelector (".modal__list");
+
+        img.src = `../../assets/images/pets-${data.name.toLowerCase()}.png`;
+        title.textContent = data.name;
+        subtitle.textContent = `${data.type} - ${data.breed}`;
+        desc.textContent = data.description;
+        list.innerHTML = `<li class="modal__item"><b>Age:</b> ${data.age}</li>
+                          <li class="modal__item"><b>Inoculations:</b> ${data.inoculations.join(', ')}</li>
+                          <li class="modal__item"><b>Diseases:</b> ${data.diseases.join(', ')}</li>
+                          <li class="modal__item"><b>Parasites:</b> ${data.parasites.join(', ')}</li>`;
+    }
+
+    const getPetInfo = (name) => {
+        return pets.filter (pet => pet['name'] == name)[0];
+    }
+
     const hidePet = (e) => {
-        if (e.target.classList.contains ("modal")) {
+        if (e.target.classList.contains ("modal")) {         
             modal.setAttribute ("aria-hidden", "true");
         } 
     }

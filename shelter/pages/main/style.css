@@ -584,7 +584,6 @@ img {
 }
 
 .modal {
-    *display: none;
     position: fixed;    
     left: 0;
     top: 0;
@@ -602,25 +601,33 @@ img {
 }
 
 .modal__window {
-    display: flex;  
-    align-items: center;
-    gap: 29px;
     position: fixed;    
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    margin-top: 80px;
     margin: auto auto;  
     width: 80%; 
     height: 50vw;
-    max-width: 900px;
+    max-width: 900px; 
     max-height: 500px;
     z-index: 2;
     background-color: var(--color-light-s);
     border-radius: 9px;
     color: #000000;
-    cursor: default;
+    cursor: default;  
+}
+
+.modal__wrapper {
+    display: flex;  
+    align-items: center;
+    gap: 29px;
+    height: 100%;
+    transition: var(--trans);
+}
+
+.modal__wrapper:hover{
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 
 .modal__img {
@@ -715,7 +722,7 @@ img {
         grid-column-gap: 0px;
         margin: 0 10px;
     } 
-    .modal__window {
+    .modal__wrapper {
         gap: 1.4vw;
     }
     .modal__img {
@@ -980,7 +987,7 @@ img {
         height: 84vw;
     }
     .modal__window {
-        height: 75vw; 
+        height: 80vw; 
         width: 75%;
     }
 }
