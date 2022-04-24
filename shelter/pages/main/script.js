@@ -1,8 +1,16 @@
 
 import {tns} from '../../assets/js/tiny-slider/tiny-slider.js';
+//import pets from '../../assets/js/pets.json' assert {type: 'json'};
+const url = '../../assets/js/pets.json'; 
 
-import pets from '../../assets/js/pets.json' assert {type: 'json'};
+// async function getData() {
+//     const res = await fetch(url);
+//     const data = await res.json();
+//     //console.log(data);
+//     return data;
+// }
 
+//let pets = getData();
 
 const slider = tns({
   container: '.our-friends__card-block',
@@ -10,9 +18,10 @@ const slider = tns({
   nextButton: '.our-friends__btn-right',
   items: 1,
   slideBy: 'page',
+  arrowKeys: true,
   nav: false,
   gutter: 0,
-  speed: 600,
+  speed: 400,
   responsive: {
     767: {
         gutter: 30,
@@ -41,13 +50,17 @@ function fixModalHeight () {
     const modalWrapper = document.querySelector('.modal__wrapper');
     const contentPadding = 20;
     const contentHeight = modalContent.offsetHeight;
-    console.log(modalWrapper.offsetHeight, contentHeight);
     modalWindow.style.height = '';
     if (modalWrapper.offsetHeight < contentHeight - 6) modalWindow.style.height = contentHeight + contentPadding +'px';
 }
 
 
-function addModalEvent () {
+async function addModalEvent () {
+
+    const res = await fetch(url);
+    const pets = await res.json();
+
+    const body = document.querySelector ("body");
     const cardBlock = document.querySelector (".our-friends__card-block");
     const modal = document.querySelector (".modal");
     const closeBtn = document.querySelector (".modal__close-btn");
@@ -60,6 +73,8 @@ function addModalEvent () {
             updateModal(pet);
             modal.setAttribute ("aria-hidden", "");
             fixModalHeight ();
+            body.classList.add ("scroll-off");
+            document.documentElement.classList.add ("scroll-off");
         }
     }
 
@@ -87,11 +102,15 @@ function addModalEvent () {
     const hidePet = (e) => {
         if (e.target.classList.contains ("modal")) {         
             modal.setAttribute ("aria-hidden", "true");
+            body.classList.remove ("scroll-off");
+            document.documentElement.classList.remove ("scroll-off");
         } 
     }
 
     const closeModal = (e) => {
         modal.setAttribute ("aria-hidden", "true");
+        body.classList.remove ("scroll-off");
+        document.documentElement.classList.remove ("scroll-off");
     }
 
     cardBlock.addEventListener("click", showPet);
@@ -105,9 +124,18 @@ function addScrollEvent () {
 }
 
 function getScrollWidth () {
-    document.body.style.setProperty (
+
+    let testDiv = document.createElement('div');
+    testDiv.style.overflowY = 'scroll';
+    testDiv.style.width = '50px';
+    testDiv.style.height = '50px';
+    document.body.append(testDiv);
+    let scrollWidth = testDiv.offsetWidth - testDiv.clientWidth;
+    testDiv.remove();
+
+    document.documentElement.style.setProperty (
         "--scrollbar-width",
-        `${window.innerWidth - document.body.clientWidth}px`
+        `${scrollWidth}px`
     );
 }
 

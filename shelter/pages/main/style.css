@@ -618,6 +618,10 @@ img {
     cursor: default;  
 }
 
+[aria-hidden="true"] .modal__window  {
+    left: var(--scrollbar-width);
+}
+
 .modal__wrapper {
     display: flex;  
     align-items: center;
@@ -704,6 +708,14 @@ img {
 .modal__close-icon {  
     font-size: 28px;
     color: var(--color-dark-3xl);
+}
+
+.scroll-off {
+    overflow: hidden; 
+}
+
+html.scroll-off {
+    padding-right: var(--scrollbar-width);
 }
 
 @media (max-width: 1279px) { 
