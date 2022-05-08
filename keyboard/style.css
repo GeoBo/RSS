@@ -9,18 +9,16 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: arial;
-  *font-family: "courier new";
   font-weight: normal;
   font-size: 20px; 
-  *font-size: 1.5vw;
+  height: 100%;
 }
 
-body {
+body { 
   display: flex;
-  *color: #ddd;
+  height: 100%;
   color: #c1c0c0;
-  *background: url('assets/image/table.jpg'), radial-gradient(100% 215.42% at 0% 0%, #866a56 0%, #a69587 100%);
-  background: url('assets/image/table2.jpg'), radial-gradient(100% 215.42% at 0% 0%, #b07d5b 0%, #5f432b 100%);
+  background: url('assets/image/table.jpg'), radial-gradient(100% 215.42% at 0% 0%, #b07d5b 0%, #5f432b 100%);
   background-size: 100%;
   background-blend-mode: multiply;
 }
@@ -30,11 +28,11 @@ body {
     width: 35em;
     background-color: #6b6d74;
     border-radius: 4px;
+    box-shadow: 1px 1px 5px black;
 }
 
 .display {
   padding: 16px 0.5em;
-  *padding: 16px 10px; 
   background-color: #6c6f75;
   border-radius: 4px 4px 0 0;
   border-bottom: 1px solid #55565a;
@@ -43,40 +41,33 @@ body {
 .screen {
   border-radius: 6px;
   padding: 4px;
-  *background-image: linear-gradient(to bottom, #1a2133, #4d6398);
   background-image: linear-gradient(to bottom, #7b7f88, #a6a8ab);
 }
 
+.frame {
+    padding: 8px 28px 16px;
+    background-color: #060606;
+    border-radius: 4px; 
+    position: relative;
+}
+
 .textarea {
-  position: relative;
+  *position: relative;
   width: 100%;
-  *height: 160px;
   height: 10em;
   overflow: auto;
-  padding: 8px 28px 16px;
   word-wrap: break-word;
-  border-radius: 4px;
-  background-color: #060606;
-  color: #ddd;
-  color: #aaaaaa;
-  resize: none;
   font-size: 1em;
   letter-spacing: 0.02em;
+  border: none;
+  resize: none;
+  background-color: inherit;
+  color: #aaa;
 }
 
-textarea:focus {
+.textarea:focus {
     outline: none;
 }
-
-/* .inputArea::before {
-  content: ">";
-  position: absolute;
-  top: 14px;
-  left: 8px;
-  *width: 8px;
-  *height: 12px;
-  *background-image: url("img/string-arrow.svg");
-} */
 
 .keyboard {
   margin-top: 0.5em;
@@ -105,39 +96,39 @@ textarea:focus {
   color: #e3e1e1;
 }
 
-.key:active {
+.active, .key:active {
   background-image: linear-gradient(to bottom, #272727, #222121);
   color: #eee;
 }
 
-.tab {
+.Tab {
    width: 3em;
 }
 
-.capslock {
+.CapsLock {
    width: 4.9em;
-   height: 2em;
-   *font-size: 1em;
-   line-height: 2em;
+   height: 2.5em;
+   font-size: 0.8em; 
+   line-height: 2.5em;
 }
 
-.shift {
+.ShiftLeft, .ShiftRight{
   width: 4.9em;
 }
 
-.ctrl, .win, .alt {
-  width: 2.6em;
+.ControlLeft, .ControlRight, .MetaLeft, .AltLeft, .AltRight {
+  width: 2.6em; 
 }
 
-.space {
+.Space {
   width: 13.8em;
 }
 
-.backspace {
+.Backspace {
   width: 5.5em;
 }
 
-.enter {
+.Enter {
   width: 6em;
 }
 
