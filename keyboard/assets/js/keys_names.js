@@ -1,4 +1,4 @@
-const keysNames = [
+const KeysNames = [
 	[
 		{
 			'Backquote' : {
@@ -156,12 +156,34 @@ const keysNames = [
 				}
 			}
 		},
-		{ 'Backspace' : '' }
+		{
+			'Backspace' : {
+				'en': {
+					'caseDown': 'Backspace',
+					'caseUp':  'Backspace'
+				},
+				'ru': {
+					'caseDown': 'Backspace',
+					'caseUp': 'Backspace'
+				}
+			}
+		}
 	],
 	[
-		{ 'Tab' : '' },
 		{
-			'keyQ' : {
+			'Tab' : {
+				'en': {
+					'caseDown': 'Tab',
+					'caseUp':  'Tab'
+				},
+				'ru': {
+					'caseDown': 'Tab',
+					'caseUp': 'Tab'
+				}
+			}
+		},
+		{
+			'KeyQ' : {
 				'en': {
 					'caseDown': 'q',
 					'caseUp':  'Q'
@@ -173,19 +195,19 @@ const keysNames = [
 			}
 		},
 		{
-			'keyW' : {
+			'KeyW' : {
 				'en': {
 					'caseDown': 'w',
 					'caseUp':  'W'
 				},
 				'ru': {
 					'caseDown': 'ц',
-					'caseUp': 'ЙЦ'
+					'caseUp': 'Ц'
 				}
 			}
 		},
 		{
-			'keyE' : {
+			'KeyE' : {
 				'en': {
 					'caseDown': 'e',
 					'caseUp':  'E'
@@ -197,7 +219,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyR' : {
+			'KeyR' : {
 				'en': {
 					'caseDown': 'r',
 					'caseUp':  'R'
@@ -209,7 +231,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyT' : {
+			'KeyT' : {
 				'en': {
 					'caseDown': 't',
 					'caseUp':  'T'
@@ -221,7 +243,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyY' : {
+			'KeyY' : {
 				'en': {
 					'caseDown': 'y',
 					'caseUp':  'Y'
@@ -233,7 +255,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyU' : {
+			'KeyU' : {
 				'en': {
 					'caseDown': 'u',
 					'caseUp':  'U'
@@ -245,7 +267,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyI' : {
+			'KeyI' : {
 				'en': {
 					'caseDown': 'i',
 					'caseUp':  'I'
@@ -257,7 +279,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyO' : {
+			'KeyO' : {
 				'en': {
 					'caseDown': 'o',
 					'caseUp':  'O'
@@ -269,7 +291,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyP' : {
+			'KeyP' : {
 				'en': {
 					'caseDown': 'p',
 					'caseUp':  'P'
@@ -316,12 +338,34 @@ const keysNames = [
 				}
 			}
 		},
-		{ 'Del' : ''}
+		{
+			'Delete' : {
+				'en': {
+					'caseDown': 'Del',
+					'caseUp':  'Del'
+				},
+				'ru': {
+					'caseDown': 'Del',
+					'caseUp': 'Del'
+				}
+			}
+		},
 	],
 	[ 
-		{ 'CapsLock' : ''},
 		{
-			'keyA' : {
+			'CapsLock' : {
+				'en': {
+					'caseDown': 'CapsLock',
+					'caseUp':  'CapsLock'
+				},
+				'ru': {
+					'caseDown': 'CapsLock',
+					'caseUp': 'CapsLock'
+				}
+			}
+		},
+		{
+			'KeyA' : {
 				'en': {
 					'caseDown': 'a',
 					'caseUp':  'A'
@@ -333,7 +377,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyS' : {
+			'KeyS' : {
 				'en': {
 					'caseDown': 's',
 					'caseUp':  'S'
@@ -345,7 +389,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyD' : {
+			'KeyD' : {
 				'en': {
 					'caseDown': 'd',
 					'caseUp':  'D'
@@ -357,7 +401,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyF' : {
+			'KeyF' : {
 				'en': {
 					'caseDown': 'f',
 					'caseUp':  'F'
@@ -369,7 +413,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyG' : {
+			'KeyG' : {
 				'en': {
 					'caseDown': 'g',
 					'caseUp':  'G'
@@ -381,7 +425,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyH' : {
+			'KeyH' : {
 				'en': {
 					'caseDown': 'h',
 					'caseUp':  'H'
@@ -393,7 +437,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyJ' : {
+			'KeyJ' : {
 				'en': {
 					'caseDown': 'j',
 					'caseUp':  'J'
@@ -404,7 +448,7 @@ const keysNames = [
 				}
 			}
 		},{
-			'keyK' : {
+			'KeyK' : {
 				'en': {
 					'caseDown': 'k',
 					'caseUp':  'K'
@@ -416,7 +460,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyL' : {
+			'KeyL' : {
 				'en': {
 					'caseDown': 'l',
 					'caseUp':  'L'
@@ -451,12 +495,34 @@ const keysNames = [
 				}
 			}
 		},
-		{ 'Enter' : '' }
+			{
+			'Enter' : {
+				'en': {
+					'caseDown': 'Enter',
+					'caseUp':  'Enter'
+				},
+				'ru': {
+					'caseDown': 'Enter',
+					'caseUp': 'Enter'
+				}
+			}
+		},
 	],
 	[
-		{ 'Shift' : '' },
 		{
-			'keyZ' : {
+			'ShiftLeft' : {
+				'en': {
+					'caseDown': 'Shift',
+					'caseUp':  'Shift'
+				},
+				'ru': {
+					'caseDown': 'Shift',
+					'caseUp': 'Shift'
+				}
+			}
+		},
+		{
+			'KeyZ' : {
 				'en': {
 					'caseDown': 'z',
 					'caseUp':  'Z'
@@ -468,7 +534,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyX' : {
+			'KeyX' : {
 				'en': {
 					'caseDown': 'x',
 					'caseUp':  'X'
@@ -480,7 +546,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyC' : {
+			'KeyC' : {
 				'en': {
 					'caseDown': 'c',
 					'caseUp':  'C'
@@ -492,7 +558,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyV' : {
+			'KeyV' : {
 				'en': {
 					'caseDown': 'v',
 					'caseUp':  'V'
@@ -504,7 +570,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyB' : {
+			'KeyB' : {
 				'en': {
 					'caseDown': 'b',
 					'caseUp':  'B'
@@ -517,7 +583,7 @@ const keysNames = [
 		},
 		,
 		{
-			'keyN' : {
+			'KeyN' : {
 				'en': {
 					'caseDown': 'n',
 					'caseUp':  'N'
@@ -529,7 +595,7 @@ const keysNames = [
 			}
 		},
 		{
-			'keyM' : {
+			'KeyM' : {
 				'en': {
 					'caseDown': 'm',
 					'caseUp':  'M'
@@ -553,7 +619,7 @@ const keysNames = [
 			}
 		},
 		{
-			'Dot' : {
+			'Period' : {
 				'en': {
 					'caseDown': '.',
 					'caseUp':  '>'
@@ -588,14 +654,80 @@ const keysNames = [
 				}
 			}
 		},
-		{ 'Shift' : '' }
+		{
+			'ShiftRight' : {
+				'en': {
+					'caseDown': 'Shift',
+					'caseUp':  'Shift'
+				},
+				'ru': {
+					'caseDown': 'Shift',
+					'caseUp': 'Shift'
+				}
+			}
+		},
 	],
 	[
-		{ 'Ctrl' : '' },
-		{ 'Win' : '' },
-		{ 'Alt' : '' },
-		{ 'Space' : '' },
-		{ 'Alt' : '' },
+		{
+			'ControlLeft' : {
+				'en': {
+					'caseDown': 'Ctrl',
+					'caseUp':  'Ctrl'
+				},
+				'ru': {
+					'caseDown': 'Ctrl',
+					'caseUp': 'Ctrl'
+				}
+			}
+		},
+		{
+			'MetaLeft' : {
+				'en': {
+					'caseDown': 'Win',
+					'caseUp':  'Win'
+				},
+				'ru': {
+					'caseDown': 'Win',
+					'caseUp': 'Win'
+				}
+			}
+		},
+		{
+			'AltLeft' : {
+				'en': {
+					'caseDown': 'Alt',
+					'caseUp':  'Alt'
+				},
+				'ru': {
+					'caseDown': 'Alt',
+					'caseUp': 'Alt'
+				}
+			}
+		},
+			{
+			'Space' : {
+				'en': {
+					'caseDown': '',
+					'caseUp':  ''
+				},
+				'ru': {
+					'caseDown': '',
+					'caseUp': ''
+				}
+			}
+		},
+		{
+			'AltRight' : {
+				'en': {
+					'caseDown': 'Alt',
+					'caseUp':  'Alt'
+				},
+				'ru': {
+					'caseDown': 'Alt',
+					'caseUp': 'Alt'
+				}
+			}
+		},
 		{
 			'ArrowLeft' : {
 				'en': {
@@ -632,8 +764,19 @@ const keysNames = [
 				}
 			}
 		},
-		{ 'Ctrl' : '' },
+		{
+			'ControlRight' : {
+				'en': {
+					'caseDown': 'Ctrl',
+					'caseUp':  'Ctrl'
+				},
+				'ru': {
+					'caseDown': 'Ctrl',
+					'caseUp': 'Ctrl'
+				}
+			}
+		}
 	]
 ]
 
-export default keysNames;
+export default KeysNames;
