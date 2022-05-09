@@ -576,7 +576,7 @@ const KeysNames = [
 					'caseUp':  'B'
 				},
 				'ru': {
-					'caseDown': 'И',
+					'caseDown': 'и',
 					'caseUp': 'И'
 				}
 			}
