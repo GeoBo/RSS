@@ -33,6 +33,8 @@
             "space-infix-ops": "off",
             "eqeqeq": "off",
             "no-param-reassign": "off",
-            "no-inline-comments": "error"
+            "no-inline-comments": "error",
+            "comma-dangle": ["error", "never"],
+            "no-sparse-arrays": "off"       
     }
 }
